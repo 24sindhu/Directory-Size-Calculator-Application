@@ -1,6 +1,6 @@
 # Directory Size Calculator
 
-Hello! My name is Sai Sindhu Javvaji, and I created this project as a quick exercise using Python to simulate a file system.  
+Hello! My name is Sai Sindhu Javvaji, and I created this project using Python to simulate a file system.  
 Navigating directories, listing their contents, and checking folder sizes—including nested folders—are all possible with this command-line application.
 
 ---
@@ -23,6 +23,7 @@ You can experiment with commands like `cd`, `ls`, and `size` because they mimic 
 ---
 
 ## Project Structure
+```
 directory-size-calculator/
 │
 ├── src/
@@ -38,7 +39,7 @@ directory-size-calculator/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
-
+```
 ---
 
 ## Sample Commands
