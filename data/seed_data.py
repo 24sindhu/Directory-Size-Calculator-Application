@@ -4,10 +4,10 @@ def build_sample_filesystem():
     root = Directory("root")
 
     docs = Directory("docs", parent=root)
-    root.add_directory(docs)
+    root.add_subdirectory(docs)
 
     images = Directory("images", parent=root)
-    root.add_directory(images)
+    root.add_subdirectory(images)
 
     docs.add_file(File("resume.pdf", 120))
     docs.add_file(File("notes.txt", 80))
@@ -16,7 +16,7 @@ def build_sample_filesystem():
     images.add_file(File("photo2.png", 300))
 
     projects = Directory("projects", parent=docs)
-    docs.add_directory(projects)
+    docs.add_subdirectory(projects)
     projects.add_file(File("project1.zip", 400))
 
     return root

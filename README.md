@@ -1,17 +1,16 @@
 # Directory Size Calculator
 
-Hello! My name is Sai Sindhu Javvaji, and I created this project using Python to simulate a file system.  
+Hello! My name is Sai Sindhu Javvaji, and I created this project using Python to simulate a file system.
 Navigating directories, listing their contents, and checking folder sizes—including nested folders—are all possible with this command-line application.
-
----
 
 ## How I Constructed It
 
-To represent folders and files, I chose to use two classes: `Directory` and `File`.  
-Because each folder keeps track of its parent, `cd ..` works as intended.
+The program uses the OOP with abstraction and polymorphism:
 
-Recursively calculating a folder's size was the difficult part; I had to test it several times before it worked for nested directories.  
-You can experiment with commands like `cd`, `ls`, and `size` because they mimic terminal behavior.
+- Abstract base class: `FileSystemItem` defines `get_size()` and `get_name()`
+- Polymorphism: `File` and `Directory` both implement these methods, so the commands just call `get_size()` without worrying about the type
+
+- Tree structure: Each `Directory` knows of files and subdirectories, and knows its parent for `cd ..` The trickiest part was the recursive function get_size(), as I had to repeatedly test the nested folders until perfection.
 
 ## Features
 
@@ -27,8 +26,8 @@ You can experiment with commands like `cd`, `ls`, and `size` because they mimic 
 directory-size-calculator/
 │
 ├── src/
-│ ├── filesystem.py 
-│ ├── commands.py 
+│ ├── filesystem.py # Core classes with abstraction/polymorphism
+│ ├── commands.py  # CLI commands
 │ └── main.py 
 │
 ├── data/

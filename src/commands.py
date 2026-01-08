@@ -1,27 +1,27 @@
-# to handle basic commands: ls, cd, size
+# to handle commands for Directory Size Calculator CLI
 def ls(current):
     """List folders and files in the current directory."""
     if current.subdirectories:
         print(">> Folders in this directory:")
-        for name in current.subdirectories:
-            print(f" - {name}/")
+        for name, subdir in current.subdirectories.items():
+            print(f" - {subdir.get_name()}/")
     else:
-        print("No subfolders here!")
+        print("No subfolders here")
 
     if current.files:
         print(">> Files in this directory:")
         for f in current.files:
-            print(f" - {f.name} [{f.size}KB]")
+            print(f" - {f.get_name()} [{f.get_size()}KB]")
     else:
-        print("No files found. You can add some!")
+        print("No files found.")
 
 def cd(current, target):
-    """Change directory. Supports going up with '..'."""
+    """Change directory. Supports '..' to go up."""
     if target == "..":
         if current.parent:
             return current.parent
         else:
-            print("Already at root.")
+            print("you're at root already")
             return current
 
     if target in current.subdirectories:
@@ -31,6 +31,6 @@ def cd(current, target):
     return current
 
 def size(current):
-    """Print the total size of current directory including subdirectories."""
-    total = current.get_size()
+    """Print total size of current folder using polymorphic get_size()"""
+    total = current.get_size()  # Polymorphic call
     print(f"Total size: {total}KB")
